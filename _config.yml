@@ -1,8 +1,8 @@
 title: Moonwalk
 author: Abhinav Saxena
 url: https://www.abhinavsaxena.com/moonwalk # root address of the site
-description: > # description of the site (multiple lines allowed)
-On this website, I will be sharing my progress in game development while also providing insights into my interests and background.
+description: > 
+  On this website, I will be sharing my progress in game development while also providing insights into my interests and background.
 permalink: /:slug
 
 favicon: "./logo.png" # relative path to site's favicon
