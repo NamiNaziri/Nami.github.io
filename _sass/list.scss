@@ -35,10 +35,20 @@ ul.horizontal-list {
 
 }
 
+.crop {
+width: 690px; 
+height: 572px; 
+overflow: hidden;
+}
+
+.crop img {
+margin: -70px 0px 0px -2px;
+}
+
 .card {
   padding: 1em;
   border: 1px var(--text) solid;
-  width: 15em;
+  width: 16em;
   height: auto;
   text-align: center;
   font-size: 1em;
@@ -46,6 +56,8 @@ ul.horizontal-list {
   background-color: var(--bg-secondary);
   margin-bottom: 0.8em;
   border-radius: 0.5em;
+
+  
 
   .header {
     color: var(--links);
