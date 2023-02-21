@@ -1,10 +1,28 @@
-ul.horizontal-list {
+ul.normal-horizontal-list{
   display: flex;
   //justify-content: space-between;
   margin-top: 0em;
   margin-left: -40px;
   flex-wrap: wrap;
+  text-align: center;
+  li {
+    display:inline;
+    margin-right: 1em;
+  }
 
+  li a {
+    text-decoration: none;
+    font-weight: normal
+  }
+}
+
+ul.horizontal-list {
+  display: flex;
+  //justify-content: space-between;
+  margin-top: 0em;
+  margin-left: 40px;
+  flex-wrap: wrap;
+  text-align: center;
   li {
     display:inline;
     margin-right: 1em;
