@@ -3,16 +3,20 @@
 
     <li class="card">
       <a href="{{ item.url }}">
+        
+
         <span class="header">
           {{ item.title }}
-
-          {% if item.highlight %}
-            <mark>{{ item.highlight }}</mark>
-          {% endif %}
-
+          <br>
+          {% for highlight in item.highlight%}
+            <mark>{{ highlight }}</mark>
+          {% endfor %}
         </span>
 
         <hr />
+        {% for image in item.image%}
+          <img src= {{ image }}>
+        {% endfor %}
 
         {% if item.desc != false %}
         <p class="body">

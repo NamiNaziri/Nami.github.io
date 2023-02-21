@@ -24,7 +24,9 @@ project_entries:
   - title: Project 4
     url: overview-post
     desc: This project uses highlight markup, configured in _data/home.yml
-    highlight: WIP
+    highlight: [Unreal Engine, C++, Blueprint, Behavior Tree]
+    image: assets\images\projects\BossAI.jpg
+
 
   - title: Project 5
     url: overview-post
