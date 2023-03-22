@@ -4,6 +4,10 @@ tags: [Unreal Engine, SmartObjects]
 ---
 # Todays list
 
+https://user-images.githubusercontent.com/49837425/226943718-cbd0d09f-45d4-440b-b38f-19243e1df994.mp4
+
+
+
 * [ ] StateTree fundamental
 * [ ] Continue on smart objects
 * [ ] Writng first smart object !?
