@@ -5,18 +5,28 @@ navbar_entries:
   - title: blog
     url: blog
 
-project_entries:
+project_entries_game:
+  - title: Boss AI
+    url: boss
+    desc: A boss AI created using Unreal Engine's behavior tree
+    highlight: [Unreal Engine, C++, Blueprint]
+    image: assets\images\projects\BossAI_V2.jpg
+
+
+project_entries_animation:
+  - title: Dual Quaternion Skinning
+    url: dual-quaternion-skinning
+    desc: Implementation of Dual Quaternion Skinning (DQS) to address candy wrapping issue with other skinning techniques like Linear Blend Skinning.
+    highlight: [C++, OpenGL]
+    image: assets\images\projects\DQS.gif
+
   - title: Animation System
     url: animationsystem
     desc: An application for playing and blending animations created from scratch with OpenGL and C++.
     highlight: [C++, OpenGL]
     image: assets\images\projects\animation.gif
 
-  - title: Boss AI
-    url: boss
-    desc: A boss AI created using Unreal Engine's behavior tree
-    highlight: [Unreal Engine, C++, Blueprint]
-    image: assets\images\projects\BossAI_V2.jpg
+project_entries_graphics:
 
   - title: Mesh Import and Simplification
     url: MeshImporter

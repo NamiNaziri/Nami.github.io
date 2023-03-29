@@ -1,32 +1,43 @@
-<ul class="horizontal-list">
-  {% for item in include.collection %}
+<div class="card project"> 
 
-    <li class="card">
-      <a href="{{ item.url }}">
-        
+  <div class="card-header">
+    <h3>{{include.type}}</h3>
+  </div>
 
-        <span class="header">
-          {{ item.title }}
-          <br>
-          {% for highlight in item.highlight%}
-            <mark>{{ highlight }}</mark>
+
+  <ul class="horizontal-list">
+    
+    {% for item in include.collection %}
+
+      <li class="card">
+        <a href="{{ item.url }}">
+          
+
+          <span class="header">
+            {{ item.title }}
+            <br>
+            {% for highlight in item.highlight%}
+              <mark>{{ highlight }}</mark>
+            {% endfor %}
+          </span>
+
+          <hr />
+          {% for image in item.image%}
+            
+              <img src= {{ image }}>
+            
           {% endfor %}
-        </span>
 
-        <hr />
-        {% for image in item.image%}
-          
-            <img src= {{ image }}>
-          
-        {% endfor %}
+          {% if item.desc != false %}
+          <p class="body">
+            {{ item.desc }}
+          </p>
+          {% endif %}
+        </a>
+      </li>
 
-        {% if item.desc != false %}
-        <p class="body">
-          {{ item.desc }}
-        </p>
-        {% endif %}
-      </a>
-    </li>
+    {% endfor %}
 
-  {% endfor %}
-</ul>
+  </ul>
+
+</div>
