@@ -1,7 +1,7 @@
 title: Nami's Website
 author: Nami Naziri
 description: > 
-  On this website, I will be sharing my progress in game development while also providing insights into my interests and background.
+  Welcome to my space! If you want to know more about me, feel free to check out my <a href="/about">about</a> page. If you're interested in seeing examples of my professional-level coding in Unreal Engine, I recommend taking a look at the Space Invader project. As a developer, I have a deep interest in the underlying systems that power game engines and computer graphics. That's why you'll see many of my projects related to these areas, as I'm always eager to learn as much as I can about how they work. 
 permalink: /:slug
 
 favicon: "./logo.png" # relative path to site's favicon
@@ -42,7 +42,7 @@ soopr:
 highlighter: rouge
 
 sass:
-  style: :compressed
+  style: "compressed"
 
 plugins:
   - jekyll-feed
