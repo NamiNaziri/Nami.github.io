@@ -4,16 +4,6 @@ tags: [Unreal Engine, SmartObjects]
 ---
 # Todays list
 
-[<img src="https://img.youtube.com/vi/BbtSTWsiasE/maxresdefault.jpg" width="50%">](https://youtu.be/BbtSTWsiasE)
-
-
-
-
-https://user-images.githubusercontent.com/49837425/226944875-79dd7f1f-25e4-4331-afda-646c7ec8131c.mp4
-
-
-
-
 * [ ] StateTree fundamental
 * [ ] Continue on smart objects
 * [ ] Writng first smart object !?
@@ -38,7 +28,6 @@ A Transition is triggered when a Task completes, succeeds, or fails, or when a m
 Starts from leaf state and progress upwards toward the root. The first succeed that leads to state is selected.
 
 #### Transition Elements
-
 
 ### State selection logic
 
@@ -81,7 +70,6 @@ is the link between the Smart Object components and the collection. This subsyst
 * keeps track of smart objects in the level
 * Link between the smart object components and the collection
 * automatically created in the level and will create smart object collection if it's missing
-
 
 ## Sources
 
