@@ -11,5 +11,6 @@ My experience includes working with animation components such as blending, layer
 
 If you wish to contact me, please feel free to reach out via email.
 
-<a href = "mailto: abc@example.com">Send Email</a>
+<a href = "mailto: naminaziri1@gmail.com">Send Email </a>
+
 
