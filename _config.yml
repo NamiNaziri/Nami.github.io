@@ -1,7 +1,7 @@
 title: Nami's Website
 author: Nami Naziri
 description: > 
-  Welcome to my space! If you want to know more about me, feel free to check out my <a href="/about">about</a> page. If you're interested in seeing examples of my professional-level coding in Unreal Engine, I recommend taking a look at the Space Invader project. As a developer, I have a deep interest in the underlying systems that power game engines and computer graphics. That's why you'll see many of my projects related to these areas, as I'm always eager to learn as much as I can about how they work. 
+  Welcome to my space! If you want to know more about me, feel free to check out my <a href="/about">about</a> page. If you're interested in seeing examples of my professional-level coding in Unreal Engine, I recommend taking a look at the  <b>Space Invaders project </b>. As a developer, I have a deep interest in the underlying systems that power game engines and computer graphics. As a result, many of my projects are dedicated to these areas, as I am always eager to explore and comprehend their underlying principles and workings. 
 permalink: /:slug
 
 favicon: "./logo.png" # relative path to site's favicon
