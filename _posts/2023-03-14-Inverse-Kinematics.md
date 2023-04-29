@@ -4,14 +4,11 @@ tags: [Unreal Engine, SmartObjects]
 ---
 # Jacobian based inverse kinematics
 
-
-derivatives are calculated using the differentiation equation formula definition diffrensiation formula
+In computer animation and robotics, inverse kinematics is the mathematical process of calculating the variable joint parameters needed to place the end of a kinematic chain, such as a robot manipulator or animation character's skeleton, in a given position and orientation relative to the start of the chain. [Wikipedia](https://en.wikipedia.org/wiki/Inverse_kinematics)
 
 ### [Github](https://github.com/NamiNaziri/AnimationEngine)
 
-
 ## Code
-
 
 ```cpp
 Eigen::MatrixXd Skeleton::ComputeJacobian(unsigned endEffectorIndex)
@@ -67,7 +64,6 @@ Eigen::MatrixXd Skeleton::ComputeJacobianInv(Eigen::MatrixXd J)
 	return J.completeOrthogonalDecomposition().pseudoInverse();
 }
 ```
-
 
 ```cpp
 void Skeleton::SolveIK(unsigned endEffectorJoint, FW::Vec3f goal)
