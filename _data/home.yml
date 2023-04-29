@@ -7,7 +7,7 @@ navbar_entries:
 
 project_entries_game:
   - title: Space Invaders
-    url: Space-Invaders
+    url: space-invaders
     desc: This game is a re-creation of the classic Space Invaders, built using the Unreal Engine. 
     highlight: [Unreal Engine, C++, Blueprint]
     image: assets\images\projects\SpaceInvaders.gif
