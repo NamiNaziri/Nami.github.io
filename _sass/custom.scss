@@ -1,10 +1,11 @@
 .card.project{
-    border-color:  #1F242A;
-    background-color: #1F242A;
+    border-color: var(--bg);;
+    //background-color: #1F242A;
+    background-color: var(--bg);
     width: 100%;
     padding: 2px;
     margin-bottom: 0px;
-    margin: 0 auto;
+    margin: auto;
 
 }
 
