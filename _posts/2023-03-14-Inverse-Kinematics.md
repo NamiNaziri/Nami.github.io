@@ -112,11 +112,9 @@ void Skeleton::SolveIK(unsigned endEffectorJoint, FW::Vec3f goal)
 
 ## Reference
 
-Matrix calculation is done using Eigen library
+Matrix calculations are done using Eigen library
 
 https://eigen.tuxfamily.org/index.php?title=Main_Page
-
-sources:
 
 http://graphics.cs.cmu.edu/nsp/course/15-464/Fall09/handouts/IK.pdf
 

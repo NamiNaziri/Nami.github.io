@@ -36,7 +36,7 @@ project_entries_graphics:
 
   - title: Jacobian Inverse Kinematics
     url: inverse-kinematics
-    desc: A mesh importer and surface simplification using quadric error metrics
+    desc: An implementation of inverse kinematics that utilizes the Jacobian matrix.
     image: assets\images\projects\IK.gif
     highlight: [C++, OpenGL]
 
