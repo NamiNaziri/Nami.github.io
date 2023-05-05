@@ -7,10 +7,11 @@ tags: [Unreal,SpaceInvaders, c++]
 
 A space invaders clone using the Unreal engine as an entry for the  **[Games Job Fair Spring 2023 - Unreal Engine Programming Challenge](https://gamesjobfair.com/programming-challenges-unrealengine-unity)**.
 
-
 ### This entry has been selected as one of the top 3 entries, and the code structure was reviewed by Chris Rock, the Lead Gameplay Programmer at Savage Games. You can watch the review from this [link](https://youtu.be/u3x7nDlHT6s?t=2168)
 
 ### Please, Play the game from [itch.io](https://naminaziri.itch.io/space-invaders) and review the code from the [GitHub](https://github.com/NamiNaziri/SpaceInvaders)
+
+<img src="..\assets\images\projects\Nami_Naziri_UE_Challenge.png"  width="60%" height="30%">
 
 <img src="..\assets\images\projects\si_review.png"  width="60%" height="30%">
 
