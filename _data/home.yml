@@ -4,6 +4,12 @@ navbar_entries:
 
   - title: Blog
     url: blog
+  
+  - title: GitHub
+    url: https://github.com/NamiNaziri
+
+  - title: CV
+    url: assets\docs\Resume_NamiNaziri.pdf
 
 project_entries_game:
   - title: Space Invaders
@@ -12,9 +18,9 @@ project_entries_game:
     highlight: [Unreal Engine, C++, Blueprint]
     image: assets\images\projects\SpaceInvaders.gif
 
-  - title: Boss AI
-    url: https://github.com/NamiNaziri/UE4_AI_BehaviorTree
-    desc: A boss AI prototype created using Unreal Engine's behavior tree
+  - title: Unreal Prototypes 
+    url: unreal-prototypes
+    desc: This is a compilation of various prototypes I have developed using Unreal Engine.
     highlight: [Unreal Engine, C++, Blueprint]
     image: assets\images\projects\BossAI_V2.jpg
 
@@ -47,6 +53,12 @@ project_entries_graphics:
     highlight: [C++, OpenGL]
 
 old_project_entries:
+  - title: Boss AI
+    url: https://github.com/NamiNaziri/UE4_AI_BehaviorTree
+    desc: A boss AI prototype created using Unreal Engine's behavior tree
+    highlight: [Unreal Engine, C++, Blueprint]
+    image: assets\images\projects\BossAI_V2.jpg
+
   - title: Soopr
     url: https://www.soopr.co
     desc: Delight your readers - add beautiful share and like buttons easily to your websites 
