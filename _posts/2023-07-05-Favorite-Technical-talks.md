@@ -35,7 +35,7 @@ Here, I'll share some of my favorite talks from the Game Developers Conference (
 
 ## Animation Programming
 
-[Animation Exchange 2023 | Air Dragons and the Systemic Flight System of 'God of War Ragnarok'](https://youtu.be/okxFF8oaMv8)
+[Animation Exchange 2023 - Air Dragons and the Systemic Flight System of 'God of War Ragnarok'](https://youtu.be/okxFF8oaMv8)
 
 [Animation Bootcamp: An Indie Approach to Procedural Animation](https://youtu.be/LNidsMesxSE)
 
@@ -44,6 +44,9 @@ Here, I'll share some of my favorite talks from the Game Developers Conference (
 [Motion Warping in 'Gears of War 4': Doing More with Less](https://www.gdcvault.com/play/1024219/Motion-Warping-in-Gears-of)
 
 [Physics Animation in Uncharted 4: A Thief's End](https://youtu.be/7S-_vuoKgR4)
+
+[[GDC 2015] Animation of The Order: 1886](https://youtu.be/t6q80hYy7sk)
+
 
 
 ### Motion Matching and Motion Synthesis
