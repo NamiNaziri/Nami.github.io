@@ -2,7 +2,6 @@
 layout: post
 tags: [Unreal,SpaceInvaders, c++]
 ---
-
 # Space Invaders
 
 A space invaders clone using the Unreal engine as an entry for the  **[Games Job Fair Spring 2023 - Unreal Engine Programming Challenge](https://gamesjobfair.com/programming-challenges-unrealengine-unity)**.
@@ -38,43 +37,44 @@ Let's start with the requirenments.
 
 ## General thought process
 
-During creation of this game, I wanted to use unreal engine's features as much as possible and also wanted to have different tunable variables that designers (Myself in this project 😄) can use to change the game. I wanted to give as much as flexibility as possible.
+During the creation of this game, I aimed to utilize Unreal Engine's features to the fullest while also providing various tunable variables that designers (including myself in this project 😄) could use to modify the game. I wanted to offer as much flexibility as possible.
 
 Now lets start with Chris's questions.
 
 ### To BP or not to BP
 
-The project was almost entirely written in CPP because it was one of the requirements, but I've always tried to explore the different features of Unreal Engine. I'm still in the learning process of how to do this effectively, such as deciding which variables are better suited to be modified by designers, or which variables should be read-only or both readable and writeable. In general, this part of the project has been incredibly insightful for me.The project made almost fully in CPP because it was one of the requirenments. But I always try to utilize different aspects of the unreal engine. And I am in a learning process of how to do this. For example, what variables is better to be available to be changes by designers, or what variables can be a readable or both readable and writeable. In general this part of the review was super insightful for me.
+The project is primarily developed in C++ as it was one of the requirements. However, I always strive to leverage various aspects of the Unreal Engine and am currently in the process of learning how to do so. For instance, I am exploring which variables are best suited for designers to modify, or which ones should be designated as readable, writable, or both. Overall, this part of the review has been extremely insightful for my learning process.
 
 ### Is the complexity really necessary
 
 #### Thinking about when to use actor components and when to use actors.
 
-I always try to consider different options, but sometimes it can be challenging. In this case, Chris asked whether our launcher should be an actor or actor component. After considering the options, I decided to use an actor for my launcher for two reasons.
 
-Firstly, I'm using a pool component as the component for the projectile launcher, and although it's possible to use an actor component with another actor component, it's generally considered bad practice.
+I always consider various options, but sometimes it can be challenging. In this case, Chris asked whether our launcher should be an actor or an actor component. After careful consideration, I chose to implement it as an actor for two main reasons.
 
-Secondly, I want to be able to have different types of launchers that can be spawned during the game and collected by the players, which will require an inventory system implemented as an actor component. I appreciate Chris raising this question because it was a difficult decision to make.
+Firstly, I'm using a pool component as the projectile launcher's component. While it's technically possible to use an actor component with another actor component, it's generally considered best practice to avoid such nested setups.
+
+Secondly, I want the flexibility to have different types of launchers that can be spawned in-game and collected by players. Achieving this will require an inventory system implemented as an actor component. I appreciate Chris for raising this question because it led to a challenging but important decision.
 
 #### Pooling Component
 
-There is a comment in my header file indicating that (😄), for the current state of the game, a pooling component isn't necessary. However, if we decide to add more flying components in the future, it may become necessary. I just wanted to demonstrate that I'm aware of the benefits of pooling components😄.
+In my header file, there's a comment (😄) stating that, for the current state of the game, a pooling component isn't required. However, it's worth noting that if we decide to incorporate more flying components in the future, a pooling component might become necessary. I wanted to emphasize my awareness of the advantages of pooling components 😄.
 
 ### Seperation of responsibilities
 
-I completely agree with Chris's take. It was a mistake from my end having the direction in the player pawn. In more general way, we probably will use skeletal component for our weapons, this way we can just use a socket for the location and probably the direction of launch.
+I fully agree with Chris's perspective. It was an oversight on my part to have the direction in the player pawn. In a more general approach, we will likely use a skeletal component for our weapons, allowing us to utilize a socket for both the location and potentially the launch direction.
 
-Regarding the speed, I wanted to allow for more flexibility by enabling the speed to be set both by the function and by the projectile movement component. There's a comment in the header file explaining that if you set the velocity to (-1), it will use the velocity from the projectile movement component. However, I believe there's a bug in the code related to this that I need to fix 😄. Fortunately, it's not currently causing any issues since I'm currently using the speed from the PMC.
+Regarding the speed, I aimed to provide flexibility by allowing it to be set both through the function and the projectile movement component. There's a comment in the header file explaining that setting the velocity to (-1) will use the velocity from the projectile movement component. However, I acknowledge there may be a bug related to this that I need to address 😄. Fortunately, this issue isn't currently causing any problems since I'm presently using the speed from the PMC.
 
 ### Input bindings
 
-To be honest, I'm not sure I fully understand why the enemies should be able to use the inputs as well.
 
-Another question that came up was why inputs are stored in the pawn instead of the controller. The inputs are handled in both the player pawn and the controller. The controller manages inputs for general purpose actions such as pausing the game, while the player pawn controls gameplay-related inputs for that specific pawn. My reasoning for this was that, during a multiplayer match, when a player is killed, the pawn (or character) will be destroyed, but the controller remains the same and the pawn is respawned. If we wanted to switch to a different character with different inputs, having the inputs stored in the pawn would make this easy, as we could simply spawn a new pawn with the appropriate input settings.
+I'm uncertain about the need for enemies to use inputs as well.
 
-Another example is a character that can use a vehicle. By changing the pawn when the character gets into the vehicle, we can use the input defined by the vehicle. Additionally, the enhanced input system component in Unreal Engine allows for easy changes to the inputs. This gives us the flexibility to adapt to different scenarios and customize inputs for specific situations.
+Regarding the storage of inputs, they are kept in the pawn for specific gameplay-related actions, while the controller handles general-purpose inputs like pausing. This design accommodates multiplayer scenarios where a player's pawn can be destroyed and respawned, but the controller remains constant. Storing inputs in the pawn makes it straightforward to spawn a new pawn with the appropriate input settings when needed.
+
+Another benefit is seen when a character transitions to a vehicle; changing the pawn allows us to use the vehicle's defined input. The Unreal Engine's enhanced input system component offers flexibility for adjusting inputs to suit various situations and customize them as needed.
 
 ### Collective enemy behavior managed in one class is rigid
 
 Yes it is 😄I have tried to make the spawner class as flexible as possible with the variables provided, but I think the idea of using a controller is pretty interesting.
-
