@@ -1,0 +1,18 @@
+.custom-hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, #ccc, #ccc, #ccc);
+  margin: 20px 0;
+}
+
+.divider {
+  height: 1px;
+  background: #333; /* Solid color */
+  margin: 20px 0;
+}
+
+.divider-gradient {
+  height: 2px;
+  background: linear-gradient(to right, #ccc, #333, #ccc);
+  margin: 20px 0;
+}

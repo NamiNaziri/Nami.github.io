@@ -1,0 +1,32 @@
+
+
+.pesonal-image-container {
+  overflow: hidden; /* Ensures the image stays within the container */
+  border-radius: 100%; /* Creates a round shape */
+  display: flex;
+  height: 150px;
+  width: 150px;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+
+}
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+
+.pesonal-image-container img {
+
+  object-fit: cover;
+  margin-top: 17px;
+  margin-right: 4px;
+  display: block;
+  transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+  transform: scale(0.8);
+}
+
+.pesonal-image-container:hover img {
+  transform: scale(1.15); /* Increase scale on hover */
+} 

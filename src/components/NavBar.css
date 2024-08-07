@@ -1,0 +1,22 @@
+.navbar {
+  height: 60px; /* Fixed height for the navbar */
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa; /* Change this to your desired background color */
+  padding: 0 20px;
+}
+.navbar-item {
+  margin-right: 20px;
+}
+.link {
+  text-decoration: none;
+  color: #000;
+}
+
+.link.primary {
+  color: blue; /* Primary color */
+}
+
+.link.foreground {
+  color: gray; /* Foreground color */
+}

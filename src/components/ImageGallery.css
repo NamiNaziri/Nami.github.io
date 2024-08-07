@@ -1,0 +1,58 @@
+.image-gallery-image {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+}
+
+.custom-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop the image to cover the specified dimensions */
+}
+
+
+.image-gallery-thumbnail {
+  /* Extend base styles from the library */
+  /* Adjust width and other base styles as needed */
+  position: relative;
+  display: inline-block;
+  width: 100px; /* Example width, adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  overflow: hidden;
+}
+
+/* Apply 16:9 aspect ratio */
+.image-gallery-thumbnail:before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.image-gallery-thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop the image to cover the specified dimensions */
+}
+
+.iframe-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.scaled-svg {
+  width: 5000px; /* Adjust width as needed */
+  height: 24px; /* Adjust height as needed */
+}
+
+

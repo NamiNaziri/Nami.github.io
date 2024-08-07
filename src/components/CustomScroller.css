@@ -1,0 +1,23 @@
+.vertical-nav-dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Space between dots */
+  position: absolute; /* Overlay positioning */
+  right: 10px; /* Adjust as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Allows clicks to pass through */
+  z-index: 1;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(204, 204, 204, 0.7); /* Inactive dot color with transparency */
+  border-radius: 50%;
+}
+
+.dot.active {
+  background-color: rgba(250, 0, 0, 0.7); /* Active dot color with transparency */
+} 
