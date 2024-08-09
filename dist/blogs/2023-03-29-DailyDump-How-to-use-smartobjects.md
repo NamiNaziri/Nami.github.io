@@ -1,7 +1,4 @@
----
-layout: post
-tags: [SmartObject,UnrealEngine,Blueprint, c++]
----
+
 # Steps to use smart objects
 
 We have a custom blueprint that let's you perform gameplay ability tasks as your behavior. This way you ensure that the animations (anim montages) get replicated.

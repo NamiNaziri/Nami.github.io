@@ -7,7 +7,7 @@ const FullScrollPage = ({ children }) => {
   const isXS = useMediaQuery({ query: '(max-width: 575px)' });
     return (
       <Fullpage
-      transitionTiming={550}
+      transitionTiming={isXS? 550: 550}
       scrollLockTiming={isXS? 400: 250}
       
       desktopForceStep={true}

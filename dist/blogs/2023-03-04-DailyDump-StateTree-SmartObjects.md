@@ -1,7 +1,4 @@
----
-layout: post
-tags: [Unreal Engine, SmartObjects]
----
+
 # Todays list
 
 * [ ] StateTree fundamental

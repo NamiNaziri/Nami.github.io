@@ -9,6 +9,7 @@ import FullScrollPage from './Scroll/FullScrollPage';
 import CVPage from './CV/CVPage';
 import {lostRadiance, spaceInvaders,skinning, sm_skinning, sm_animation, sm_ik, sm_simplify,sm_prototypes } from './ProjectList.jsx'
 import SmallProjectsSection from './SmallProjectsSection.jsx';
+import "./MainPage.css"
 const VerticalNavDots = ({ maxNumber, currentNumber }) => {
   const dots = [];
 
@@ -33,14 +34,13 @@ const projects = [
 const mobileProjects =[
   [sm_prototypes],[ sm_animation],
   [sm_skinning],[sm_ik],
-  [sm_simplify]
+  
 ]
 
 const smallProjects = [
   [sm_prototypes,  sm_animation],
   [sm_skinning,sm_ik],
   [sm_simplify]
-
 ]
 
 function MainPage() {
@@ -69,7 +69,7 @@ function MainPage() {
 // }, []);
 
   return ( 
-    <div>
+    <div className='.disable-momentum'>
     <FullScrollPage>
       {projects.map((project,index)=>(
         <FullpageSection key={index}>

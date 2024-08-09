@@ -1,12 +1,18 @@
 @tailwind base;
+::-webkit-scrollbar {
+  display: none; /* Hides scrollbar for WebKit browsers */
+}
 
-*::-webkit-scrollbar {
-    display: none;
-  }
-  @media screen and (max-width: 768px){
-    ::-webkit-scrollbar {
-        -webkit-appearance: none;
-    }
-  }
+/* Hide scrollbar for IE and Edge */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Firefox */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+}
+
+
 @tailwind components;
 @tailwind utilities;

@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/",
   plugins: [react()],
   server: {
     proxy: {
@@ -18,6 +17,9 @@ export default defineConfig({
     // Alternatively, we could add `<script>window.global = window;</script>` to index.html.
     // https://github.com/vitejs/vite/discussions/5912
     global: {},
+  },
+  esbuild: {
+    drop: ['console'],
   },
   build: {
     rollupOptions: {

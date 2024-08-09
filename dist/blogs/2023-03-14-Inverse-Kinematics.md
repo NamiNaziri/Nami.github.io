@@ -1,7 +1,4 @@
----
-layout: post
-tags: [Unreal Engine, SmartObjects]
----
+
 # Jacobian based inverse kinematics
 
 In computer animation and robotics, inverse kinematics is the mathematical process of calculating the variable joint parameters needed to place the end of a kinematic chain, such as a robot manipulator or animation character's skeleton, in a given position and orientation relative to the start of the chain. [Wikipedia](https://en.wikipedia.org/wiki/Inverse_kinematics)

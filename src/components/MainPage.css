@@ -21,3 +21,9 @@
 .dot.active {
   background-color: rgba(250, 0, 0, 0.7); /* Active dot color with transparency */
 } 
+
+
+.disable-momentum {
+  overflow: hidden; /* Disable scrolling */
+  -webkit-overflow-scrolling: touch; /* Disables momentum scrolling on touch devices */
+}

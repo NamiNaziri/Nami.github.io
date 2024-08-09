@@ -100,7 +100,7 @@ export const sm_skinning =
   title: "Dual Quaternion Skinning ",
   description: "Implementation of Dual Quaternion Skinning (DQS) to address candy wrapping issue with other skinning techniques like Linear Blend Skinning.",
   tags:["C++", "OpenGL", "2023"],
-  link: '/Dual-Quaternion-Skinning',
+  link: '/#/Dual-Quaternion-Skinning',
   img: 'img/DQS.gif',
 }
 
@@ -118,7 +118,7 @@ export const sm_ik =
   title: "Jacobian Inverse Kinematics",
   description: "An implementation of inverse kinematics that utilizes the Jacobian matrix.",
   tags:["C++", "OpenGL", "2023"],
-  link: '/inverse-kinematics',
+  link: '/#/inverse-kinematics',
   img: 'img/IK.gif',
 }
 
@@ -136,7 +136,7 @@ export const sm_prototypes =
   title: "Unreal Prototypes",
   description: "This is a compilation of various prototypes I have developed using Unreal Engine.",
   tags:["Unreal Engine", "C++", "Blueprint", "2021-2023"],
-  link: '/Unreal-Prototypes',
+  link: '/#/Unreal-Prototypes',
   img: 'img/BossAI_V2.jpg',
 }
 

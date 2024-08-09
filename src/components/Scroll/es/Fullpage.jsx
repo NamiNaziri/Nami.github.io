@@ -4,6 +4,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import FullpageContext from './FullpageContext';
+import { absoluteFullClasses } from '@nextui-org/react';
 
 class Fullpage extends PureComponent {
   static contextType = FullpageContext;
@@ -45,6 +46,7 @@ class Fullpage extends PureComponent {
       translateY: 0,
       pageYOffset: 0,
       prevScrollPos:0,
+      prevTouchScrollPos:0,
       offsetHeight: 0,
       count: 0,
       number: 0,
@@ -61,8 +63,11 @@ class Fullpage extends PureComponent {
     this.getIndex = this.getIndex.bind(this);
     // handle
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleTouchMove = this.handleTouchMove.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.handleKeys = this.handleKeys.bind(this);
+    this.handleTouchEnd = this.handleTouchEnd.bind(this);
+    this.handleTouchStart = this.handleTouchStart.bind(this);
     // refs
     this.driverRef = React.createRef();
     this.warperRef = React.createRef();
@@ -77,6 +82,10 @@ class Fullpage extends PureComponent {
     });
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.handleScroll);
+      window.addEventListener('touchmove', this.handleTouchMove, {passive: false }); // Set passive to false
+      
+      window.addEventListener('touchend', this.handleTouchEnd);
+      window.addEventListener('touchstart', this.handleTouchStart);
       window.addEventListener('resize', this.handleResize);
     }
     if (typeof document !== 'undefined') {
@@ -88,7 +97,11 @@ class Fullpage extends PureComponent {
     // set body height == to 'auto'
     if (typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.handleScroll);
+      
       window.removeEventListener('resize', this.handleResize);
+      window.removeEventListener('touchend', this.handleTouchEnd);
+      window.removeEventListener('touchstart', this.handleTouchStart);
+      window.removeEventListener('touchmove', this.handleTouchMove);
     }
     if (typeof document !== 'undefined') {
       document.removeEventListener('keydown', this.handleKeys);
@@ -126,16 +139,26 @@ class Fullpage extends PureComponent {
     return slide;
   }
 
-  handleScroll() {
+  handleScroll(e) {
     const {
       resetScroll,
       translateY,
     } = this.state;
 
-    console.log('handle scroll')
+    const {
+      scrollLockTiming,
+    } = this.props;
 
+    console.log(`handle scroll: ${this.lockScroll}`)
+
+    //return false;
     if(this.disableScroll) {
       console.log('disable scroll')
+      window.scrollTo({
+        top:  translateY * -1,
+        left: 0,
+        behavior: 'instant'
+      });
       return false;
     }
 
@@ -148,12 +171,20 @@ class Fullpage extends PureComponent {
         left: 0,
         behavior: 'instant'
       });
+      
+      //TODO this is how i'm hardcoding the mobile users! fix this!
+      if(scrollLockTiming === 400)
+      {
+        this.disableScroll = true
+      }
+      
       return false;
+
     }
 
     else if (!this.ticking) {
-      console.log('ticking')
-      window.requestAnimationFrame(() => {
+      // this is the scrolling behavior in general. and also finds us the new slide
+      window.requestAnimationFrame(() => { 
         if (resetScroll) {
           console.log('reset scroll')
           window.scrollTo(0, translateY * -1);
@@ -163,8 +194,9 @@ class Fullpage extends PureComponent {
           prevScrollPos,
         } = this.state;
 
-        const pageYOffset = window.pageYOffset || 0;
+        const pageYOffset = window.scrollY || 0;
         const delta = pageYOffset -prevScrollPos
+        console.log(`ticking: ${delta}`)
         const factor = delta > 0 ? 0.2: 0.8
         const newPrevScrollPos = pageYOffset
         this.setState({
@@ -202,6 +234,89 @@ class Fullpage extends PureComponent {
     }
     this.ticking = true;
   }
+
+  handleTouchStart = (e) => {
+    // Handle touch end event
+    console.log('touchstart')
+   //this.disableScroll = false
+   const newPrevTouchScrollPos = e.touches[0].clientY;
+   this.setState({
+    prevTouchScrollPos:newPrevTouchScrollPos,
+  });
+
+  }
+
+
+  handleTouchMove = (e) => {
+    e.preventDefault();
+
+    // const {
+
+    //   prevTouchScrollPos,
+    // } = this.state;
+    // if (prevTouchScrollPos) {
+    //   if (e.touches[0].clientY - prevTouchScrollPos < 0 ) {
+    //     this.back();
+    //   } else {
+    //     this.next();
+    //   }
+    //   const newPrevTouchScrollPos = e.touches[0].clientY;
+    //   this.setState({
+    //     prevTouchScrollPos:null,
+    //   });
+    // } else {
+    //   const newPrevTouchScrollPos = e.touches[0].clientY;
+
+    //   this.setState({
+    //     prevTouchScrollPos:newPrevTouchScrollPos,
+    //   });
+    // }
+
+    // console.log(`touchmove: ${e.touches[0].clientY - prevTouchScrollPos}`);
+  }
+
+  handleTouchEnd = (e) => {
+    // Handle touch end event
+    const {prevTouchScrollPos} = this.state;
+
+
+    console.log(`touchend ${e.changedTouches[0].clientY - prevTouchScrollPos}`);
+    //this.disableScroll = false
+   
+    // const {
+
+
+
+
+    if (prevTouchScrollPos  && Math.abs(e.changedTouches[0].clientY - prevTouchScrollPos) > 50) 
+    {
+      if (e.changedTouches[0].clientY - prevTouchScrollPos > 0 ) 
+      {
+        this.back();
+      } 
+      else 
+      {
+        this.next();
+      }
+    } 
+
+
+    
+    // window.scrollTo({
+    //   top:  translateY * -1,
+    //   left: 0,
+    //   behavior: 'instant'
+    // });
+    //e.preventDefault();
+    // this.lockScroll =true;
+    //   setTimeout(() => {
+    //     this.disableScroll=false;
+    //     this.lockScroll = false;
+    //   }, 10000);
+
+  }
+
+  
 
   handleKeys(event) {
     const {
@@ -259,21 +374,19 @@ class Fullpage extends PureComponent {
     } = this.props;
 
     if (slide !== newSlide) {
-      const translateY = Math.max(
-        (this.fullPageHeight - this.viewportHeight) * -1,
-        newSlide.el.current.offsetTop * -1,
-      );
+     
+      const translateY = Math.max((this.fullPageHeight - this.viewportHeight) * -1, newSlide.el.current.offsetTop * -1,);
 
-      const {
-        onHide,
-      } = slide.props;
-      if (onHide && typeof onHide === 'function') {
+      const {onHide,} = slide.props;
+
+      if (onHide && typeof onHide === 'function') 
+      {
         setTimeout(() => onHide(translateY), transitionTiming);
       }
 
       this.lockScroll = true;
       //window.scrollTo(0, translateY * -1);
-      console.log(instantScroll)
+      console.log(`instant scroll: ${instantScroll}`)
       if(instantScroll)
       {
         this.disableScroll =true;
@@ -282,6 +395,11 @@ class Fullpage extends PureComponent {
           left: 0,
           behavior: 'instant'
         });
+
+        setTimeout(() => {
+          this.disableScroll=false;
+          this.lockScroll = false;
+        }, scrollLockTiming);
       }
       
       this.setState({
@@ -293,7 +411,7 @@ class Fullpage extends PureComponent {
       });
 
       setTimeout(() => {
-        this.disableScroll=false;
+        //this.disableScroll=false;
         this.lockScroll = false;
       }, scrollLockTiming);
 
@@ -316,8 +434,11 @@ class Fullpage extends PureComponent {
     const {
       number,
     } = this.state;
+    if(!this.disableScroll && !this.lockScroll)
+      {
     const index = Math.max(0, number - 1);
     this.goto(this.slides[index], true, true);
+      }
   }
 
   next() {
@@ -327,8 +448,12 @@ class Fullpage extends PureComponent {
     const {
       number,
     } = this.state;
-    const index = Math.min(length - 1, number + 1);
-    this.goto(this.slides[index], true, true);
+    if(!this.disableScroll && !this.lockScroll)
+    {
+      const index = Math.min(length - 1, number + 1);
+      this.goto(this.slides[index], true, true);
+    }
+
   }
 
   first() {
@@ -352,6 +477,7 @@ class Fullpage extends PureComponent {
       translateY,
       pageYOffset,
       prevScrollPos,
+      prevTouchScrollPos,
       offsetHeight,
       number,
       count,
@@ -365,6 +491,7 @@ class Fullpage extends PureComponent {
           translateY,
           pageYOffset,
           prevScrollPos,
+          prevTouchScrollPos,
           offsetHeight,
           number,
           count,
