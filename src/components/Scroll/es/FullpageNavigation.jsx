@@ -10,6 +10,10 @@ import FullpageContext from './FullpageContext';
 // TODO: do navigation
 // eslint-disable-next-line react/prefer-stateless-function
 class FullpageNavigation extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.hasUpdatedOnce = false; // Flag to track if it was called once
+  }
   static contextType = FullpageContext;
 
   static defaultProps = {
@@ -32,6 +36,7 @@ class FullpageNavigation extends PureComponent {
     reverse: PropTypes.bool,
   };
 
+
   render() {
     const { style, itemStyle, reverse = false } = this.props;
     const {
@@ -42,6 +47,8 @@ class FullpageNavigation extends PureComponent {
       const { goto } = this.context;
       goto(slide, false,true);
     };
+
+    
 
     return (
       <div style={{

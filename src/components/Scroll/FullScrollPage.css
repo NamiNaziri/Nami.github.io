@@ -1,5 +1,1 @@
 /* FullScrollPage.css */
-.disable-momentum {
-    overflow: hidden; /* Disable scrolling */
-    -webkit-overflow-scrolling: touch; /* Disables momentum scrolling on touch devices */
-  }
