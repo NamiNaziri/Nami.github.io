@@ -33,8 +33,8 @@ const FullScrollPage = ({ children }) => {
       setTimeout(() => {
         scrollToTop();
         setFirstLoad(false);
-      }, 800);
-    }, 200); // Delay of 2000ms (2 seconds)
+      }, 1200);
+    }, 400); // Delay of 2000ms (2 seconds)
 
     
     //Fullpage.goto(4,)
@@ -48,8 +48,8 @@ const FullScrollPage = ({ children }) => {
   const isXS = useMediaQuery({ query: '(max-width: 575px)' });
     return (
       <Fullpage
-      transitionTiming={isXS? 400 : firstLoad ? 0: 550}
-      scrollLockTiming={isXS? 500: firstLoad ? 0: 250}
+      transitionTiming={isXS? 550 : firstLoad ? 0: 550}
+      scrollLockTiming={isXS? 400: firstLoad ? 0: 250}
       ref={childRef}
       desktopForceStep={true}
       >

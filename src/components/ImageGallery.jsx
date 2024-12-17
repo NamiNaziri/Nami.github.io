@@ -6,6 +6,7 @@ import './ImageGallery.css'
 import React from "react";
 import { bool, func } from "prop-types";
 import SVG from "./SVG/SVG";
+import { useState } from 'react';
 
 const CustomLeftNav = React.memo(({ disabled, onClick }) => {
   return (
@@ -38,7 +39,8 @@ const CustomRightNav = React.memo(({ disabled, onClick }) => {
 
 
 const ImageGalleryComponent = ({items}) => {
-
+  const [showVideo, setShowVideo] = useState(false);
+  const [startIndex, setStartIndex] = useState(0);
   const updatedItems = items.map(item => {
     const newItem = { ...item };
     if (/\.(png|jpg|jfif|gif)$/i.test(newItem.original)) {
@@ -73,22 +75,52 @@ const ImageGalleryComponent = ({items}) => {
   };
 
   function renderVideo(item) {
+    
+
     return (
     <div className="image-gallery-image">
+        {showVideo ? (
         <iframe
           className="iframe-video"
-          src={item.embedUrl}
+            src={item.embedUrl + '?autoplay=1'}
+            style={iframeStyle}
+            loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen={true}
+            allowFullScreen
         ></iframe>
+        ) : (
+          
+        <img src={item.thumbnail} className="custom-image" alt="" onClick={() => {setShowVideo(true); setStartIndex(2)}}/>
+
+          // <img
+          //   src={item.thumbnail}
+          //   className="video-thumbnail"
+          //   alt=""
+          //   onClick={() => setShowVideo(true)}
+          //   style={{ cursor: 'pointer' }} // Cursor change to indicate it's clickable
+          // />
+        )}
       </div>
+
+    // <div className="image-gallery-image">
+    //     <iframe
+    //       className="iframe-video"
+    //       src={item.embedUrl}
+    //       loading="lazy"
+    //       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    //       allowFullScreen={true}
+    //     ></iframe>
+    //   </div>
     );
   }
 
   const gallerySettings = {
     items: updatedItems,
     showPlayButton: false,
+    startIndex:startIndex, 
     showBullets: true,
+    loading: 'lazy',
+    thumbnailLoading: 'lazy',
     thumbnailPosition: 'bottom', // Adjust thumbnail position as needed
     renderThumbInner: renderThumb, // Custom rendering for thumbnails
     renderLeftNav: (onClick, disabled) => (

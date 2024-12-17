@@ -6,7 +6,7 @@ import {NextUIProvider} from "@nextui-org/react";
 import {useNavigate} from 'react-router-dom';
 import CVPage from './components/CV/CVPage';
 import {
-  BrowserRouter as Router, Routes, Route, useLocation 
+  HashRouter as Router, Routes, Route, useLocation 
 } from 'react-router-dom'
 import MarkdownRenderer from './components/MarkdownRenderer'
 import './App.css'; 

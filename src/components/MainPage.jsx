@@ -19,14 +19,13 @@ const projects = [
 const mobileProjects =[
   [sm_prototypes],[ sm_animation],
   [sm_skinning],[sm_ik],
-  [sm_simplify]
+  
 ]
 
 const smallProjects = [
   [sm_prototypes,  sm_animation],
   [sm_skinning,sm_ik],
   [sm_simplify]
-
 ]
 
 function MainPage() {
@@ -40,11 +39,11 @@ function MainPage() {
 
     setTimeout(() => {
       setIsLoading(false)
-    }, 3400); 
+    }, 4000); 
 
   }, []);
   return ( 
-    <div>
+    <div className='.disable-momentum'>
       { isLoading && <LoadingPage></LoadingPage>}
      <FullScrollPage>
       {projects.map((project,index)=>(
